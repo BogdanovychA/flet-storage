@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flet-storage"
+version = "0.1.2"
+authors = [
+    { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
+]
+description = "A lightweight utility for simplified client-side storage management in Flet applications."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flet>=0.80.2",
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Repository = "https://github.com/BogdanovychA/flet-storage.git"
