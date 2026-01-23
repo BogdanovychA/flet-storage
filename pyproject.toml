@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flet-storage"
-version = "0.1.2"
+version = "1.0.0"
 authors = [
     { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
 ]
@@ -12,7 +12,7 @@ description = "A lightweight utility for simplified client-side storage manageme
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "flet>=0.80.2",
+    "flet>=0.80.1",
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -22,4 +22,4 @@ classifiers = [
 ]
 
 [project.urls]
-Repository = "https://github.com/BogdanovychA/flet-storage.git"
+Repository = "https://github.com/BogdanovychA/flet-storage"

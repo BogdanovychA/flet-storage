@@ -1,3 +1,3 @@
-from .base import clear, list_keys, load, save
+from .flet_storage import FletStorage
 
-__all__ = ["save", "load", "clear", "list_keys"]
+__all__ = ["FletStorage"]
