@@ -44,7 +44,7 @@ async def main(page: ft.Page):
 
     # Check if key exists
     exists = await storage.contains_key("user")
-    print(exists)    # True
+    print(exists)  # True
 
     # Get all keys
     keys = await storage.get_keys()

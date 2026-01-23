@@ -42,7 +42,7 @@ async def main(page: ft.Page):
 
     # Перевірка наявності ключа
     exists = await storage.contains_key("user")
-    print(exists)    # True
+    print(exists)  # True
 
     # Отримання всіх ключів
     keys = await storage.get_keys()
