@@ -10,15 +10,25 @@ authors = [
 ]
 description = "A lightweight utility for simplified client-side storage management in Flet applications."
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "flet>=0.80.1",
-]
 license = {text = "MIT"}
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "flet>=0.80.1",
+]
+[dependency-groups]
+dev = [
+    "flet-cli>=0.80.1",
+    "flet-desktop-light>=0.80.1",
+    "flet-web>=0.80.1",
+    "pre_commit>=4.5.1",
+    "black>=26.1.0",
+    "isort>=7.0.0",
+    "twine>=6.2.0",
 ]
 
 [project.urls]

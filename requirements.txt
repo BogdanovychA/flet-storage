@@ -1,5 +1,0 @@
-flet>=0.80.2
-twine>=6.2.0
-pre_commit>=4.4.0
-black>=25.11.0
-isort>=7.0.0
