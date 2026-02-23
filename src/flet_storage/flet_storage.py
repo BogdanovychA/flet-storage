@@ -25,7 +25,7 @@ class FletStorage:
         self.storage = ft.SharedPreferences()
 
     @staticmethod
-    def _set_default(_obj):
+    def _set_default(obj):
         """
         JSON serializer helper that handles 'set' objects.
 
@@ -34,8 +34,8 @@ class FletStorage:
         handle other types or fail.
         """
 
-        if isinstance(_obj, set):
-            return list(_obj)
+        if isinstance(obj, set):
+            return list(obj)
         raise TypeError
 
     async def set(self, key: str, obj: object) -> bool:
