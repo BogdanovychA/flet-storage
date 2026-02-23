@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flet-storage"
-version = "1.0.0"
+version = "1.1.0"
 authors = [
     { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
 ]
@@ -27,7 +27,7 @@ dev = [
     "flet-web>=0.80.1",
     "pre_commit>=4.5.1",
     "black>=26.1.0",
-    "isort>=7.0.0",
+    "isort>=8.0.0",
     "twine>=6.2.0",
 ]
 

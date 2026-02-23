@@ -24,6 +24,20 @@ class FletStorage:
         self.app_name = app_name
         self.storage = ft.SharedPreferences()
 
+    @staticmethod
+    def _set_default(_obj):
+        """
+        JSON serializer helper that handles 'set' objects.
+
+        Converts sets to lists to ensure JSON compatibility. If the object
+        is not a set, raises TypeError to allow the default encoder to
+        handle other types or fail.
+        """
+
+        if isinstance(_obj, set):
+            return list(_obj)
+        raise TypeError
+
     async def set(self, key: str, obj: object) -> bool:
         """
         Serializes an object to JSON and stores it under a namespaced key.
@@ -35,8 +49,9 @@ class FletStorage:
         Returns:
             bool: True if the operation was successful.
         """
+
         name_obj = f"{self.app_name}.{key}"
-        obj_json = json.dumps(obj)
+        obj_json = json.dumps(obj, default=self._set_default)
 
         return await self.storage.set(name_obj, obj_json)
 
