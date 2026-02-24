@@ -12,6 +12,15 @@ class FletStorage:
     This class ensures that all keys are prefixed with a specific application name,
     preventing data collisions between different apps. It also handles
     JSON serialization and deserialization automatically.
+
+    Supported data types:
+        - dict, list, str, int, float, bool, None
+        - set (automatically preserved during serialization/deserialization)
+
+    Example:
+        storage = FletStorage("my_app")
+        await storage.set("tags", {"python", "flet"})
+        tags = await storage.get("tags")  # Returns set, not list!
     """
 
     def __init__(self, app_name: str) -> None:
@@ -29,14 +38,47 @@ class FletStorage:
         """
         JSON serializer helper that handles 'set' objects.
 
-        Converts sets to lists to ensure JSON compatibility. If the object
-        is not a set, raises TypeError to allow the default encoder to
-        handle other types or fail.
-        """
+        Converts sets to a special dict format with type metadata to preserve
+        the set type during deserialization.
 
+        Args:
+            obj: Object to serialize (expecting a set).
+
+        Returns:
+            dict: A dictionary with '__type__' marker and set values as list.
+
+        Raises:
+            TypeError: If obj is not a set (allows default encoder to handle it).
+
+        Example:
+            _set_default({"python", "flet"})
+            {'__type__': 'set', 'values': ['python', 'flet']}
+        """
         if isinstance(obj, set):
-            return list(obj)
+            return {"__type__": "set", "values": list(obj)}
         raise TypeError
+
+    @staticmethod
+    def _object_hook(dct):
+        """
+        JSON deserializer helper that reconstructs sets from stored format.
+
+        Checks each dictionary during deserialization for the '__type__': 'set'
+        marker and converts it back to a Python set.
+
+        Args:
+            dct: Dictionary from JSON deserialization.
+
+        Returns:
+            set or dict: Original set if marker found, otherwise unchanged dict.
+
+        Example:
+            _object_hook({'__type__': 'set', 'values': ['python', 'flet']})
+            {'python', 'flet'}
+        """
+        if dct.get("__type__") == "set":
+            return set(dct["values"])
+        return dct
 
     async def set(self, key: str, obj: object) -> bool:
         """
@@ -75,7 +117,7 @@ class FletStorage:
             raise KeyError(f"Key '{key}' not found in '{self.app_name}' namespace")
 
         try:
-            return json.loads(obj_json)
+            return json.loads(obj_json, object_hook=self._object_hook)
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON for key '{key}': {e}")
 

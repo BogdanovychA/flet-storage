@@ -2,18 +2,17 @@
 
 > 🌐 **Translations:** [🇺🇦 Українська](README.uk.md)
 
-A lightweight, asynchronous, namespaced storage utility...
-
 A lightweight, asynchronous, namespaced storage utility for [Flet](https://flet.dev) applications.
 
 `FletStorage` is a powerful wrapper around Flet's built-in `SharedPreferences`. It simplifies client-side data persistence by adding automatic JSON serialization, allowing you to store and retrieve complex Python objects without manual conversion, while keeping your data organized and isolated.
 
 ## Features
 
-- Automatic JSON serialization: store and retrieve `dict`, `list`, `int`, `bool`, and `str` directly.
-- Namespaced storage: automatically prefixes keys with `app_name` to prevent data collisions between different applications on the same device.
-- Asynchronous and parallel: fully asynchronous API with parallel deletion in the `clear()` method for maximum performance.
-- Robust error handling: clear `KeyError` and `ValueError` exceptions for predictable data management.
+- **Automatic JSON serialization:** Store and retrieve `dict`, `list`, `int`, `bool`, `str`, and `set` directly without manual conversion.
+- **Namespaced storage:** Automatically prefixes keys with `app_name` to prevent data collisions between different applications on the same device.
+- **Asynchronous and parallel:** Fully asynchronous API with parallel deletion in the `clear()` method for maximum performance.
+- **Robust error handling:** Clear `KeyError` and `ValueError` exceptions for predictable data management.
+- **Set support:** Python sets are automatically preserved during serialization and deserialization.
 
 ## Installation
 ```bash
@@ -59,6 +58,47 @@ async def main(page: ft.Page):
 ft.run(main)
 ```
 
+## Supported Data Types
+
+FletStorage automatically serializes and deserializes the following Python types:
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `dict` | Dictionaries | `{"key": "value"}` |
+| `list` | Lists | `[1, 2, 3]` |
+| `set` | Sets (preserved) | `{"a", "b", "c"}` |
+| `str` | Strings | `"hello"` |
+| `int`, `float` | Numbers | `42`, `3.14` |
+| `bool` | Booleans | `True`, `False` |
+| `None` | None value | `None` |
+
+### Working with Sets
+
+Sets are automatically preserved during storage and retrieval:
+```python
+# Storing a set
+tags = {"python", "flet", "async"}
+await storage.set("tags", tags)
+
+# Retrieving (returns a set, not a list!)
+tags = await storage.get("tags")
+print(type(tags))  # <class 'set'> ✅
+print(tags)  # {'python', 'flet', 'async'}
+
+# Sets in nested structures work too
+data = {
+    "user": "Ivan",
+    "tags": {"web", "mobile"},
+    "categories": ["tech", "programming"]
+}
+await storage.set("profile", data)
+profile = await storage.get("profile")
+# profile["tags"] is a set ✅
+# profile["categories"] is a list ✅
+```
+
+**Technical Note:** Sets are stored internally as `{"__type__": "set", "values": [...]}`. If you need to store a dictionary with a `"__type__"` key that equals `"set"`, it may be incorrectly interpreted as a set marker during deserialization.
+
 ## API Reference
 
 ### `__init__(app_name: str)`
@@ -81,7 +121,7 @@ Serializes an object to JSON and stores it under a namespaced key.
 
 **Parameters:**
 - `key` (str): The unique key identifier (without namespace).
-- `obj` (object): Any JSON-serializable object (dict, list, str, int, etc.).
+- `obj` (object): Any JSON-serializable object (dict, list, set, str, int, etc.).
 
 **Returns:**
 - `bool`: `True` if the operation was successful.
@@ -89,6 +129,7 @@ Serializes an object to JSON and stores it under a namespaced key.
 **Example:**
 ```python
 await storage.set("preferences", {"notifications": True})
+await storage.set("tags", {"python", "flet"})  # Sets are supported!
 ```
 
 ---
@@ -231,6 +272,22 @@ async def clear_completed_todos(storage: FletStorage):
     await storage.set("todos", active_todos)
 ```
 
+### Working with Tags (Sets)
+```python
+async def add_tag(storage: FletStorage, tag: str):
+    tags = await storage.get_or_default("tags", set())
+    tags.add(tag)
+    await storage.set("tags", tags)
+
+async def remove_tag(storage: FletStorage, tag: str):
+    tags = await storage.get_or_default("tags", set())
+    tags.discard(tag)
+    await storage.set("tags", tags)
+
+async def get_all_tags(storage: FletStorage) -> set:
+    return await storage.get_or_default("tags", set())
+```
+
 ### Data Caching
 ```python
 import time
@@ -279,6 +336,8 @@ async def safe_get_data(storage: FletStorage, key: str):
 4. **Structure your data:** Store related data together in dictionaries for better organization.
 
 5. **Clean up stale data:** Regularly remove unnecessary keys to keep storage clean.
+
+6. **Use sets for unique collections:** Sets are automatically preserved and are perfect for storing unique items like tags or categories.
 
 ## Requirements
 
