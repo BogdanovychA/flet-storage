@@ -25,6 +25,7 @@ dev = [
     "flet-cli>=0.80.1",
     "flet-desktop-light>=0.80.1",
     "flet-web>=0.80.1",
+    "build>=1.4.0",
     "pre_commit>=4.5.1",
     "black>=26.1.0",
     "isort>=8.0.0",
