@@ -1,10 +1,12 @@
 # Flet Storage
 
-> 🌐 **Переклади:** [🇬🇧 English](README.md)
+> 🌐 **Переклади:** [🇬🇧 English](https://github.com/BogdanovychA/flet-storage/blob/main/README.md)
 
 Легка, асинхронна бібліотека для роботи зі сховищем із підтримкою простору імен для застосунків [Flet](https://flet.dev).
 
 `FletStorage` — це потужна обгортка навколо вбудованого `SharedPreferences` у Flet. Вона спрощує збереження даних на стороні клієнта, додаючи автоматичну серіалізацію JSON, що дозволяє зберігати та отримувати складні об'єкти Python без ручного перетворення, тримаючи при цьому ваші дані організованими та ізольованими.
+
+У цьому репозиторії також є skill для агентів. Дивіться файл [skill](https://github.com/BogdanovychA/flet-storage/blob/main/.agents/skills/flet-storage/SKILL.md).
 
 ## Особливості
 
