@@ -341,8 +341,8 @@ async def safe_get_data(storage: FletStorage, key: str):
 
 ## Вимоги
 
-- Python 3.12+
-- Flet >= 0.80.1
+- Python 3.10+
+- Flet >= 0.81.0
 
 ## Ліцензія
 

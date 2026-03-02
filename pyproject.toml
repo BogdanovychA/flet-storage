@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flet-storage"
-version = "1.1.0"
+version = "1.1.1"
 authors = [
     { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
 ]
@@ -16,19 +16,19 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
-    "flet>=0.80.1",
+    "flet>=0.81.0",
 ]
 [dependency-groups]
 dev = [
-    "flet-cli>=0.80.1",
-    "flet-desktop-light>=0.80.1",
-    "flet-web>=0.80.1",
+    "flet-cli>=0.81.0",
+    "flet-desktop-light>=0.81.0",
+    "flet-web>=0.81.0",
     "build>=1.4.0",
     "pre_commit>=4.5.1",
     "black>=26.1.0",
-    "isort>=8.0.0",
+    "isort>=8.0.1",
     "twine>=6.2.0",
 ]
 
