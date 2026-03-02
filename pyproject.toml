@@ -34,3 +34,5 @@ dev = [
 
 [project.urls]
 Repository = "https://github.com/BogdanovychA/flet-storage"
+"Bug Tracker" = "https://github.com/BogdanovychA/flet-storage/issues"
+"AI Agent Skill" = "https://skills.sh/bogdanovycha/flet-storage/flet-storage"
