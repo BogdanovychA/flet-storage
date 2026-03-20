@@ -18,19 +18,22 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "flet>=0.81.0",
+    "flet==0.82.2",
 ]
 [dependency-groups]
 dev = [
-    "flet-cli>=0.81.0",
-    "flet-desktop-light>=0.81.0",
-    "flet-web>=0.81.0",
+    "flet-cli==0.82.2",
+    "flet-desktop-light==0.82.2",
+    "flet-web==0.82.2",
     "build>=1.4.0",
     "pre_commit>=4.5.1",
-    "black>=26.1.0",
+    "black==26.3.1",
     "isort>=8.0.1",
     "twine>=6.2.0",
 ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [project.urls]
 Repository = "https://github.com/BogdanovychA/flet-storage"
