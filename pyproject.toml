@@ -25,11 +25,11 @@ dev = [
     "flet-cli==0.82.2",
     "flet-desktop-light==0.82.2",
     "flet-web==0.82.2",
-    "build>=1.4.0",
-    "pre_commit>=4.5.1",
+    "build==1.4.0",
+    "pre_commit==4.5.1",
     "black==26.3.1",
-    "isort>=8.0.1",
-    "twine>=6.2.0",
+    "isort==8.0.1",
+    "twine==6.2.0",
 ]
 
 [tool.setuptools.packages.find]
