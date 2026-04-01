@@ -184,7 +184,9 @@ async def get_cached_data(storage: FletStorage, key: str) -> Any | None:
 
 1. **Always Use Namespaces:** Strongly recommend initializing `FletStorage` with a unique `app_name`. Web browsers and some desktop environments share local storage per domain/user, and omitting a namespace can lead to apps overwriting each other's data.
 
-2. **Async Environment:** Remind the user that `flet-storage` functions are `async`. They must be `await`ed, and the Flet `main` function (or event handlers using it) must be asynchronous (`async def`).
+2. **Always Use `ft.run()` to Launch the App:** Modern Flet uses `ft.run(main)` — never `ft.app(target=main)`, which is deprecated. All generated code examples must use `ft.run()`.
+
+3. **Async Environment:** Remind the user that `flet-storage` functions are `async`. They must be `await`ed, and the Flet `main` function (or event handlers using it) must be asynchronous (`async def`).
 
 3. **Security:** Stored data (where `flet-storage` saves information) is **not encrypted**. Warn the user against storing sensitive data like clear-text passwords or high-privilege API keys unless they manually encrypt it first.
 
@@ -248,6 +250,14 @@ async def get_cached_data(storage: FletStorage, key: str) -> Any | None:
        user = await storage.get("user")
    except KeyError:
        user = {"name": "Guest"}
+```
+5. **Using deprecated `ft.app()` to launch the app:**
+```python
+   # ❌ Wrong - ft.app() is deprecated and should never be used
+   ft.app(target=main)
+   
+   # ✅ Correct - always use ft.run() in modern Flet
+   ft.run(main)
 ```
 
 ### Data Migration Pattern
