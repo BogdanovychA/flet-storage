@@ -9,4 +9,5 @@ version: 1.1.1
 abstract: "A lightweight utility for simplified client-side storage management in Flet applications."
 repository-code: "https://github.com/BogdanovychA/flet-storage"
 license: MIT
+doi: 10.5281/zenodo.19492703
 date-released: 2026-04-10

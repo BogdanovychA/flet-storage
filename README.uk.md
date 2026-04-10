@@ -1,5 +1,7 @@
 # Flet Storage
 
+[![DOI](https://zenodo.org/badge/1139841017.svg)](https://doi.org/10.5281/zenodo.19492703)
+
 > 🌐 **Переклади:** [🇬🇧 English](https://github.com/BogdanovychA/flet-storage/blob/main/README.md)
 
 Легка, асинхронна бібліотека для роботи зі сховищем із підтримкою простору імен для застосунків [Flet](https://flet.dev).
