@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flet-storage"
-version = "1.1.1"
+version = "1.1.2"
 authors = [
     { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
 ]
@@ -19,18 +19,17 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "flet==0.82.2",
+    "flet>=0.82.2",
 ]
 [dependency-groups]
 dev = [
-    "flet-cli==0.82.2",
-    "flet-desktop-light==0.82.2",
-    "flet-web==0.82.2",
-    "build==1.4.0",
-    "pre_commit==4.5.1",
-    "black==26.3.1",
-    "isort==8.0.1",
-    "twine==6.2.0",
+    "flet-cli",
+    "flet-desktop-light",
+    "flet-web",
+    "pre_commit",
+    "black",
+    "isort",
+    "twine",
 ]
 
 [project.urls]
@@ -43,3 +42,11 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+skip-string-normalization = true
+
+[tool.isort]
+profile = "black"

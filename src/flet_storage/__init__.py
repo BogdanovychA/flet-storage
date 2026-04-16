@@ -1,3 +1,3 @@
-from .flet_storage import FletStorage
+from .main import FletStorage
 
 __all__ = ["FletStorage"]

@@ -43,29 +43,29 @@ from flet_storage import FletStorage
 async def main(page: ft.Page):
     # Initialize storage with an app namespace to avoid key collisions
     storage = FletStorage(app_name="my_awesome_app")
-    
+
     # Writing data (automatically serializes dicts, lists, sets, etc.)
     await storage.set("user_settings", {"theme": "dark", "notifications": True})
     await storage.set("login_attempts", 3)
-    
+
     # Working with Python sets (automatically preserved!)
     await storage.set("favorite_tags", {"python", "flet", "async"})
     tags = await storage.get("favorite_tags")  # Returns a set, not a list
-    
+
     # Reading data
     settings = await storage.get("user_settings")  # Returns a standard Python dict
     attempts = await storage.get_or_default("login_attempts", 0)
-    
+
     # Checking for keys
     if await storage.contains_key("user_settings"):
         print("Settings found!")
-        
+
     # Deleting a specific key
     await storage.remove("login_attempts")
-    
+
     # Clearing all data associated with THIS app_name namespace
     await storage.clear()
-    
+
     page.add(ft.Text(f"Settings loaded: {settings}"))
     page.add(ft.Text(f"Tags loaded (type: {type(tags).__name__}): {tags}"))
 
@@ -119,20 +119,20 @@ user_data = await storage.get_or_default("user", {"name": "Guest"})
 async def manage_tags(storage: FletStorage):
     # Initialize with empty set if not exists
     tags = await storage.get_or_default("tags", set())
-    
+
     # Add tags
     tags.add("python")
     tags.add("flet")
     await storage.set("tags", tags)
-    
+
     # Remove tag
     tags.discard("python")
     await storage.set("tags", tags)
-    
+
     # Check membership
     if "flet" in tags:
         print("Flet tag exists!")
-    
+
     return tags
 ```
 
@@ -212,7 +212,7 @@ async def get_cached_data(storage: FletStorage, key: str) -> Any | None:
 ```python
    # ❌ Wrong - missing await
    storage.set("key", "value")
-   
+
    # ✅ Correct
    await storage.set("key", "value")
 ```
@@ -222,7 +222,7 @@ async def get_cached_data(storage: FletStorage, key: str) -> Any | None:
    # ❌ Wrong - sync function
    def save_data(storage):
        await storage.set("key", "value")  # SyntaxError!
-   
+
    # ✅ Correct
    async def save_data(storage):
        await storage.set("key", "value")
@@ -232,7 +232,7 @@ async def get_cached_data(storage: FletStorage, key: str) -> Any | None:
 ```python
    # ❌ Bad - large dataset in storage
    await storage.set("all_users", huge_list_of_10000_users)
-   
+
    # ✅ Better - use backend/database for large data
    await storage.set("cached_recent_users", recent_10_users)
 ```
@@ -241,10 +241,10 @@ async def get_cached_data(storage: FletStorage, key: str) -> Any | None:
 ```python
    # ❌ Risky - will crash if key missing
    user = await storage.get("user")
-   
+
    # ✅ Safe - using get_or_default
    user = await storage.get_or_default("user", {"name": "Guest"})
-   
+
    # ✅ Also safe - explicit error handling
    try:
        user = await storage.get("user")
@@ -255,7 +255,7 @@ async def get_cached_data(storage: FletStorage, key: str) -> Any | None:
 ```python
    # ❌ Wrong - ft.app() is deprecated and should never be used
    ft.app(target=main)
-   
+
    # ✅ Correct - always use ft.run() in modern Flet
    ft.run(main)
 ```
@@ -267,7 +267,7 @@ When updating app structure, show how to safely migrate data:
 async def migrate_storage(storage: FletStorage):
     """Migrate storage schema from v1 to v2."""
     version = await storage.get_or_default("schema_version", 1)
-    
+
     if version == 1:
         # Migrate from v1 to v2
         old_settings = await storage.get_or_default("settings", {})
