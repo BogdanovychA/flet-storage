@@ -1,9 +1,11 @@
 ---
 name: flet-storage
 description: Provides instructions and examples for using the flet-storage package, a lightweight asynchronous wrapper around Flet's SharedPreferences for persistent data management in Flet applications.
+version: 1.0.0
+repo: https://github.com/BogdanovychA/flet-storage
 ---
 
-# FletStorage Skill
+# Flet Storage Skill
 
 This skill provides context, examples, and best practices for integrating and working with the `flet-storage` package in Python Flet applications.
 
