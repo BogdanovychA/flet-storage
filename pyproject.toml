@@ -45,7 +45,7 @@ where = ["src"]
 
 [tool.black]
 line-length = 88
-target-version = ['py312']
+target-version = ['py310']
 skip-string-normalization = true
 
 [tool.isort]

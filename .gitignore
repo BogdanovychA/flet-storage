@@ -19,7 +19,6 @@ htmlcov/
 
 .vscode/
 .idea/
-*.swp
 *.swo
 
 .DS_Store
@@ -29,6 +28,7 @@ Thumbs.db
 
 #
 **/*.tmp
+**/*.swp
 
 # Clouds
 **/.stfolder/
