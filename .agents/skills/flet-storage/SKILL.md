@@ -296,7 +296,7 @@ async def migrate_storage(storage: FletStorage):
 ## Requirements
 
 - Python 3.10+
-- Flet >= 0.81.0
+- Flet >= 0.82.2
 
 ## License
 
