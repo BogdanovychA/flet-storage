@@ -26,3 +26,15 @@ htmlcov/
 Thumbs.db
 
 .pypirc
+
+#
+**/*.tmp
+
+# Clouds
+**/.stfolder/
+**/.stversions/
+**/.stignore
+**/.syncthing.*.tmp
+**/~syncthing~*.tmp
+**/*sync-conflict*
+**/*conflicted*
