@@ -1,7 +1,7 @@
 ---
 name: flet-storage
 description: Provides instructions and examples for using the flet-storage package, a lightweight asynchronous wrapper around Flet's SharedPreferences for persistent data management in Flet applications.
-version: 1.0.0
+version: 1.0.1
 repo: https://github.com/BogdanovychA/flet-storage
 ---
 
@@ -25,6 +25,9 @@ Activate this skill when the user:
 - Encounters issues with JSON serialization when storing data in Flet, especially with Python `set`s.
 - Needs to persist data between app sessions.
 - Asks about storing configuration, UI state, or small datasets locally.
+
+## Language Policy
+**CRITICAL:** When using this skill, ALWAYS communicate with the user in their preferred language (the language they used to ask the question). If the user asks in Ukrainian, respond in Ukrainian. If they ask in English, respond in English, and so on.
 
 ## How to Guide the User
 
@@ -293,10 +296,10 @@ async def migrate_storage(storage: FletStorage):
 - **Issues:** https://github.com/BogdanovychA/flet-storage/issues
 - **Documentation:** Full API reference and examples available in the GitHub README
 
-## Requirements
-
-- Python 3.10+
-- Flet >= 0.82.2
+## Important Notes
+- Requires **Python >= 3.10**.
+- Requires **Flet >= 0.82.2**.
+- MUST run `scripts/check_update.py` before providing assistance to ensure version alignment.
 
 ## License
 
