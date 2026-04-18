@@ -113,8 +113,15 @@ def main() -> None:
 
     try:
         remote_version = remote_data["version"]
+        repository = remote_data["repository"]
+        skill_name = remote_data["name"]
     except KeyError:
         print("Could not retrieve remote data from SKILL.md.")
+        return
+
+    owner, repo = get_owner_and_repo(repository)
+    if not owner or not repo:
+        print(f"Could not parse repository URL: {repository}")
         return
 
     if is_newer_version(remote_version, local_version):
