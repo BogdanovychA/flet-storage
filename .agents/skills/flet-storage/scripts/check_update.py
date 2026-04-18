@@ -134,7 +134,7 @@ def main() -> None:
             f"A new version of the skill is available: {remote_version} (current: {local_version})."
         )
         print(
-            f"Please update the skill using the command: npx skills add {owner}/{repo} --skill {skill_name}"
+            f"Please update the skill using the command: npx skills update {owner}/{repo} --skill {skill_name}"
         )
     else:
         print(f"Skill is up to date (version {local_version}).")
