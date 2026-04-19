@@ -178,7 +178,7 @@ class FletStorage:
 
         prefix = f"{self.app_name}."
 
-        return [item.removeprefix(prefix) for item in data]
+        return [item.removeprefix(prefix) for item in data if item.startswith(prefix)]
 
     async def clear(self) -> None:
         """
