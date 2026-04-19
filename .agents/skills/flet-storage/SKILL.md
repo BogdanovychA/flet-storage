@@ -1,7 +1,7 @@
 ---
 name: flet-storage
 description: Provides instructions and examples for using the flet-storage package, a lightweight asynchronous wrapper around Flet's SharedPreferences for persistent data management in Flet applications.
-version: 1.0.2
+version: 1.0.3
 repository: https://github.com/BogdanovychA/flet-storage
 ---
 
@@ -298,7 +298,7 @@ async def migrate_storage(storage: FletStorage):
 
 ## Important Notes
 - Requires **Python >= 3.10**.
-- Requires **Flet >= 0.81.0**.
+- Requires **Flet >= 0.80.0**.
 - MUST run `scripts/check_update.py` before providing assistance to ensure version alignment.
 
 ## License

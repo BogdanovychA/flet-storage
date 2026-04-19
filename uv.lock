@@ -494,7 +494,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "flet", specifier = ">=0.81.0" }]
+requires-dist = [{ name = "flet", specifier = ">=0.80.0" }]
 
 [package.metadata.requires-dev]
 dev = [
