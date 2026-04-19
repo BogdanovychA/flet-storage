@@ -343,11 +343,6 @@ async def safe_get_data(storage: FletStorage, key: str):
 
 6. **Use sets for unique collections:** Sets are automatically preserved and are perfect for storing unique items like tags or categories.
 
-## Requirements
-
-- Python 3.10+
-- Flet >= 0.81.0
-
 ## License
 
 MIT License

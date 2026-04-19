@@ -298,7 +298,7 @@ async def migrate_storage(storage: FletStorage):
 
 ## Important Notes
 - Requires **Python >= 3.10**.
-- Requires **Flet >= 0.82.2**.
+- Requires **Flet >= 0.81.0**.
 - MUST run `scripts/check_update.py` before providing assistance to ensure version alignment.
 
 ## License

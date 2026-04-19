@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flet-storage"
-version = "1.1.2"
+version = "1.1.3"
 authors = [
     { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
 ]
@@ -19,7 +19,7 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "flet>=0.82.2",
+    "flet>=0.81.0",
 ]
 [dependency-groups]
 dev = [
@@ -38,7 +38,6 @@ dev = [
 "DOI" = "https://doi.org/10.5281/zenodo.19492703"
 "Bug Tracker" = "https://github.com/BogdanovychA/flet-storage/issues"
 "AI Agent Skill" = "https://skills.sh/bogdanovycha/flet-storage/flet-storage"
-"PyPI Stats" = "https://pypistats.org/packages/flet-storage"
 
 [tool.setuptools.packages.find]
 where = ["src"]
