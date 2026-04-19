@@ -1,7 +1,7 @@
 ---
 name: flet-storage
 description: Provides instructions and examples for using the flet-storage package, a lightweight asynchronous wrapper around Flet's SharedPreferences for persistent data management in Flet applications.
-version: 1.0.1
+version: 1.0.2
 repository: https://github.com/BogdanovychA/flet-storage
 ---
 
