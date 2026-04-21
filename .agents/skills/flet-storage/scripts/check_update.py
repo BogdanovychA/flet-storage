@@ -125,14 +125,12 @@ def main() -> None:
         return
 
     if is_newer_version(remote_version, local_version):
-        print(
-            f"A new version of the skill is available: {remote_version} (current: {local_version})."
-        )
-        print(
-            f"Please update the skill using the command: npx skills update {owner}/{repo} --skill {skill_name}"
-        )
+        print(f"UPDATE_AVAILABLE: {remote_version} (current: {local_version})")
+        print(f"UPDATE_COMMAND: npx skills update {owner}/{repo} --skill {skill_name}")
+        exit(1)
     else:
         print(f"Skill is up to date (version {local_version}).")
+        exit(0)
 
 
 if __name__ == "__main__":

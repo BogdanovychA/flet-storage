@@ -1,7 +1,7 @@
 ---
 name: flet-storage
 description: Provides instructions and examples for using the flet-storage package, a lightweight asynchronous wrapper around Flet's SharedPreferences for persistent data management in Flet applications.
-version: 1.0.3
+version: 1.0.4
 repository: https://github.com/BogdanovychA/flet-storage
 ---
 
@@ -25,9 +25,6 @@ Activate this skill when the user:
 - Encounters issues with JSON serialization when storing data in Flet, especially with Python `set`s.
 - Needs to persist data between app sessions.
 - Asks about storing configuration, UI state, or small datasets locally.
-
-## Language Policy
-**CRITICAL:** When using this skill, ALWAYS communicate with the user in their preferred language (the language they used to ask the question). If the user asks in Ukrainian, respond in Ukrainian. If they ask in English, respond in English, and so on.
 
 ## How to Guide the User
 
@@ -289,18 +286,14 @@ async def migrate_storage(storage: FletStorage):
         print("Migrated to schema v2")
 ```
 
-## Additional Resources
+## How to Work with This Skill
 
-- **PyPI:** https://pypi.org/project/flet-storage/
-- **GitHub:** https://github.com/BogdanovychA/flet-storage
-- **Issues:** https://github.com/BogdanovychA/flet-storage/issues
-- **Documentation:** Full API reference and examples available in the GitHub README
+1. **Auto-Update Check**: ALWAYS run `scripts/check_update.py` before providing assistance.
+   - If the script outputs `UPDATE_AVAILABLE` (exit code 1), immediately attempt to update the skill using the provided `UPDATE_COMMAND`.
+   - If the update succeeds, re-read the updated `SKILL.md` and continue.
+   - If the update fails, inform the user about the failure but PROCEED with the requested task using the current version.
+2. **Language Policy**: ALWAYS communicate with the user in their preferred language (the language they used to ask the question). If the user asks in Ukrainian, respond in Ukrainian. If they ask in English, respond in English, and so on.
 
 ## Important Notes
 - Requires **Python >= 3.10**.
 - Requires **Flet >= 0.80.0**.
-- MUST run `scripts/check_update.py` before providing assistance to ensure version alignment.
-
-## License
-
-MIT License
