@@ -1,5 +1,7 @@
 # Flet Storage
 
+![Made in Ukraine](https://img.shields.io/badge/Made%20in-Ukraine-blue?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCI%2BCjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0iIzAwNTdCNyIvPgo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHk9IjQwMCIgZmlsbD0iI0ZGRDcwMCIvPgo8L3N2Zz4%3D)
+
 [![DOI](https://zenodo.org/badge/1139841017.svg)](https://doi.org/10.5281/zenodo.19492703) [![PyPI Downloads](https://static.pepy.tech/personalized-badge/flet-storage?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/flet-storage) ![PyPI - License](https://img.shields.io/pypi/l/flet-storage?logoColor=grey&color=blue) ![PyPI - Version](https://img.shields.io/pypi/v/flet-storage?logoColor=grey&color=blue)
 
 > 🌐 **Переклади:** [🇬🇧 English](https://github.com/BogdanovychA/flet-storage/blob/main/README.md)
