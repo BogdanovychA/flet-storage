@@ -34,7 +34,7 @@ dev = [
 ]
 
 [project.urls]
-"Homepage" = "https://www.bogdanovych.org"
+"Homepage" = "https://www.bogdanovych.org/en"
 "Repository" = "https://github.com/BogdanovychA/flet-storage"
 "DOI" = "https://doi.org/10.5281/zenodo.19492703"
 "Bug Tracker" = "https://github.com/BogdanovychA/flet-storage/issues"
