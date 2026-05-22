@@ -10,8 +10,6 @@ A lightweight, asynchronous, namespaced storage utility for [Flet](https://flet.
 
 `FletStorage` is a powerful wrapper around Flet's built-in `SharedPreferences`. It simplifies client-side data persistence by adding automatic JSON serialization, allowing you to store and retrieve complex Python objects without manual conversion, while keeping your data organized and isolated.
 
-This repository also includes an agent skill for Flet Storage. See the [skill file](https://github.com/BogdanovychA/flet-storage/blob/main/.agents/skills/flet-storage/SKILL.md).
-
 ## Features
 
 - **Automatic JSON serialization:** Store and retrieve `dict`, `list`, `int`, `bool`, `str`, and `set` directly without manual conversion.
@@ -344,6 +342,15 @@ async def safe_get_data(storage: FletStorage, key: str):
 5. **Clean up stale data:** Regularly remove unnecessary keys to keep storage clean.
 
 6. **Use sets for unique collections:** Sets are automatically preserved and are perfect for storing unique items like tags or categories.
+
+## AI Agent Skill
+
+This repository contains a specialised skill for AI agents. It helps the agent provide expert assistance in writing Python code and integrating this library into your projects.
+
+To install the skill, run:
+```bash
+npx skills add https://github.com/BogdanovychA/flet-storage --skill flet-storage
+```
 
 ## License
 
