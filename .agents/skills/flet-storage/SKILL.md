@@ -1,6 +1,6 @@
 ---
 name: flet-storage
-description: Provides instructions and examples for using the flet-storage package, a lightweight asynchronous wrapper around Flet's SharedPreferences for persistent data management in Flet applications.
+description: Provides instructions and examples for using the flet-storage package, an asynchronous wrapper around Flet's SharedPreferences for persistent data management. Make sure to activate this skill whenever the user mentions saving user preferences, configuration, session tokens, cached data, localStorage, or local state in Flet, or if they encounter JSON serialization errors (especially with Python sets) when persisting Flet data.
 metadata:
   version: 1.0.6
   repository: https://github.com/BogdanovychA/flet-storage
@@ -17,15 +17,6 @@ This skill provides context, examples, and best practices for integrating and wo
 - **Namespaced Storage:** Automatically prefixes keys with an `app_name` to prevent data collisions between different Flet applications on the same device or web domain.
 - **Asynchronous API:** Offers non-blocking data operations for modern async Flet apps.
 - **Robust API methods:** Includes `get_or_default()`, `contains_key()`, and safe parallelized `clear()` operations.
-
-## When to Use This Skill
-
-Activate this skill when the user:
-- Asks how to save user preferences, session tokens, or local cache in a Flet app.
-- Mentions `flet-storage` or `SharedPreferences` in Flet.
-- Encounters issues with JSON serialization when storing data in Flet, especially with Python `set`s.
-- Needs to persist data between app sessions.
-- Asks about storing configuration, UI state, or small datasets locally.
 
 ## How to Guide the User
 

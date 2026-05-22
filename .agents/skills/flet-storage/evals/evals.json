@@ -1,0 +1,27 @@
+{
+  "skill_name": "flet-storage",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "How do I save a list of user settings like theme and language in my Flet app so they persist?",
+      "expected_output": "Instructions to use FletStorage, initialization with an app_name, and calling storage.set() with async/await.",
+      "expectations": [
+        "The response recommends using the flet-storage library",
+        "The code initializes FletStorage with an app_name parameter",
+        "The code uses async/await syntax for set and get operations",
+        "The code uses ft.run() instead of ft.app() to launch the app"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm getting a JSON serialization error when trying to save a set of tags in Flet. How can I fix this?",
+      "expected_output": "Explanation that flet-storage handles Python sets automatically, and a code example showing how to store/retrieve sets.",
+      "expectations": [
+        "The response recommends using the flet-storage library",
+        "The explanation mentions that flet-storage automatically preserves Python sets",
+        "The code example shows saving a set collection using storage.set()",
+        "The code example shows retrieving the collection using storage.get()"
+      ]
+    }
+  ]
+}
